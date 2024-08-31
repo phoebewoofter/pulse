@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import SearchBar from './SearchBar';
+import SpotifySearch from './SearchBar';
 
 function App() {
   const CLIENT_ID = "84b572100dda404a8debfc4a94bda0f4";
@@ -31,7 +31,7 @@ function App() {
 
   return (
     <>
-      <SearchBar />
+      <SpotifySearch />
       <header>
         <h1>pulse</h1>
         {!token ?
