@@ -1,60 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import App from './App.js';
+import App from '../App';
 import axios from 'axios';
 
-function SpotifySearch() {
+
+function SpotifySearch({ token }) {
     const [userInput, setUserInput] = useState("");
-    const [searchType, setSearchType] = useState("track");
-    const [results, setResults] = useState("");
+    const [results, setResults] = useState([]);
 
-    useEffect(() => {
-        const fetchData = async () => {
-            if (userInput) {
-                try {
-                    const response = await axios.get('https://api.spotify.com/v1/search', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        },
-                        params: {
-                            q: userInput,
-                            type: searchType
-                        }
-                    });
-                    setResults(response.data[`${searchType}s`].items);
-                } catch (error) {
-                    console.log('No match, please try again', error);
-                }
+    const fetchData = async () => {
+        if (userInput) {
+            try {
+                const response = await axios.get('https://api.spotify.com/v1/search', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    params: {
+                        q: userInput,
+                        type: "track"
+                    }
+                });
+
+                setResults(response.data.tracks.items);
+            } catch (error) {
+                console.log('No match, please try again', error);
             }
-        };
+        }
+    };
 
-        fetchData();
-    }, [userInput, searchType]);
-
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
-        alert({userInput});
-    }
-    
+        fetchData();
+    };
+
     return (
         <>
-          <form onSubmit={handleSubmit}>
-            <input name="searchBar" value={userInput} type="text" onChange={(e) => setUserInput(e.target.value)}/>
-          </form>
-          <select value={searchType} onChange={(e) => setSearchType(e.target.value)}>
-            <option value="track">Track</option>
-            <option value="album">Album</option>
-            <option value="artist">Artist</option>
-            <option value="playlist">Playlist</option>
-            <option value="show">Show</option>
-            <option value="episode">Episode</option>
-      </select>
-      <ul>
-        {results.map((item) => (
-          <li key={item.id}>{item.name}</li>
-        ))}
-      </ul>
-         </>
-    )
+            <form id="searchBar" name="searchBar" onSubmit={handleSubmit}>
+                <input
+                    placeholder="Search a track"
+                    name="searchBar"
+                    value={userInput}
+                    type="text"
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
+                <button type="submit">Search</button>
+            </form>
+            <ul>
+                {results.map(track => (
+                    <li key={track.id}>
+                        {track.name} by {track.artists.map(artist => artist.name).join(', ')}
+                    </li>
+                ))}
+            </ul>
+        </>
+    );
 }
 
 export default SpotifySearch;
