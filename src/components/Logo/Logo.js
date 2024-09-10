@@ -4,10 +4,12 @@ import styles from './Logo.module.css';
 function Logo() {
     return (
         <div className={styles.container}>
-            <img className={styles.imgDynamic} src={require("./dynamic_logo.png")}/>
-            <img className={styles.imgStat} src={require("./static_logo.png")}/>
+            <div className={styles.wrapper}>
+                <img className={styles.imgDynamic} src={require("./dynamic_logo.png")} alt="" />
+                <img className={styles.imgStat} src={require("./static_logo.png")} alt="" />
+            </div>
         </div>
-    )
+    );
 }
 
 export default Logo;
