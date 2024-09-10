@@ -1,29 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import App from '../App';
-import axios from 'axios';
+import App from '../App/App';
 import SearchResults from './SearchResults';
 
 
-function SearchBar() {
+function SearchBar({handleSubmit}) {
     const [userInput, setUserInput] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const changeInput = (e) => {
         setUserInput(e.target.value);
     }
 
     return (
         <>
-            <form id="searchBar" name="searchBar" onSubmit={handleSubmit}>
-                <input
+            <input
                     placeholder="Search a song"
                     name="searchBar"
                     value={userInput}
                     type="text"
-                    onChange={(e) => setUserInput(e.target.value)}
-                />
-                <button type="submit">Search</button>
-            </form>
+                    onChange={changeInput}
+                    onKeyDown={(e) =>{
+                        if(e.key === "Enter") handleSubmit(e);
+                    }}
+            />
         </>
     );
 }
