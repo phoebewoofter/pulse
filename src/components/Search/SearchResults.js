@@ -4,11 +4,15 @@ import Login from '../Login/Login';
 import Tracklist from '../Track/Tracklist';
 import App from '../App/App';
 
-function SearchResults({results, handleAddToPlaylist}) {
+function SearchResults({results, 
+    handleAddToPlaylist,
+    handleRemoveFromPlaylist,
+    handleToggleTrackInPlaylist,
+    isTrackInPlaylist}) {
 
     return (
         <div>
-            <Tracklist tracks={results} handleAddToPlaylist={handleAddToPlaylist}/>
+            <Tracklist tracks={results} handleAddToPlaylist={handleAddToPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} isTrackInPlaylist={isTrackInPlaylist}/>
         </div>
     )
 }

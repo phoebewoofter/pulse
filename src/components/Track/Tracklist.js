@@ -4,7 +4,12 @@ import styles from './Tracklist.module.css';
 import App from '../App/App';
 
 
-function Tracklist({tracks, handleAddToPlaylist}) {
+function Tracklist({tracks, 
+    handleToggleTrackInPlaylist, 
+    isTrackInPlaylist,
+    handleRemoveFromPlaylist,
+    handleAddToPlaylist
+}) {
 
     return (
         <div className={styles.container}>
@@ -18,7 +23,10 @@ function Tracklist({tracks, handleAddToPlaylist}) {
                     artistName={track.artist} 
                     trackPreview={track.preview_url} 
                     albumArt={track.albumArt}
+                    handleToggleTrackInPlaylist={handleToggleTrackInPlaylist}
+                    isTrackInPlaylist={isTrackInPlaylist}
                     handleAddToPlaylist={handleAddToPlaylist}
+                    handleRemoveFromPlaylist={handleRemoveFromPlaylist}
                     track={track}/>
                     ) } )) 
                 : "No tracks found."  }

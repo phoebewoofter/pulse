@@ -99,6 +99,18 @@ const handleRemoveFromPlaylist = (track) => {
      setPlaylist(playlist.filter((t) => t.id!== track.id));
 }
 
+const isTrackInPlaylist = (track) => {
+    return playlist.some((t) => t.id === track.id);
+};
+
+const handleToggleTrackInPlaylist = (track) => {
+    if (isTrackInPlaylist(track)) {
+        handleRemoveFromPlaylist(track);
+    } else {
+        handleAddToPlaylist(track);
+    }
+};
+
   return (
     <div className={styles.container}>
      <Logo />
@@ -108,8 +120,10 @@ const handleRemoveFromPlaylist = (track) => {
       handleSubmit={handleSubmit}
       userInput={userInput} />
       <div className={styles.body}>
-     <SearchResults results={results} handleAddToPlaylist={handleAddToPlaylist}/>
-     <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} />
+     <SearchResults results={results} handleAddToPlaylist={handleAddToPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
+    isTrackInPlaylist={isTrackInPlaylist}/>
+     <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
+    isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist}/>
      </div>
     </div>
   );
