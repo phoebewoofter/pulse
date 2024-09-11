@@ -18,7 +18,8 @@ function Tracklist({tracks, handleAddToPlaylist}) {
                     artistName={track.artist} 
                     trackPreview={track.preview_url} 
                     albumArt={track.albumArt}
-                    handleAddToPlaylist={handleAddToPlaylist}/>
+                    handleAddToPlaylist={handleAddToPlaylist}
+                    track={track}/>
                     ) } )) 
                 : "No tracks found."  }
         </div>

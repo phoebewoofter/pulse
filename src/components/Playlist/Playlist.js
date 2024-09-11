@@ -8,7 +8,7 @@ export default function Playlist({playlistName, handlePlaylistNameChange, playli
         <div className={styles.container}>
             <input className={styles.input}
                 type="text" value={playlistName} placeholder="Name your playlist..." onChange={handlePlaylistNameChange}/>
-            <Tracklist track={playlist}
+            <Tracklist tracks={playlist}
             />
             <button className={styles.Spotify}>
                 Save to Spotify
