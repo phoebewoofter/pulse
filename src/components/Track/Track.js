@@ -18,9 +18,7 @@ export default function Track({
                 <div>
                     <p>{artistName}</p>
                     <p className={styles.album}>{albumName}</p>
-                    <button onClick={() => handleToggleTrackInPlaylist(track)}>
-                    {isTrackInPlaylist(track) ? '-' : '+'}
-                    </button>
+                    {isTrackInPlaylist(track)? <button className={styles.buttonRemove} onClick={() => handleToggleTrackInPlaylist(track)}>-</button> : <button className={styles.buttonAdd} onClick={() => handleToggleTrackInPlaylist(track)}>+</button>}
                 </div>
             </div>
         </div>

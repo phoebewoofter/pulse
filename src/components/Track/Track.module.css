@@ -7,3 +7,25 @@
 .album {
     font-style: italic;
 }
+
+.buttonAdd {
+    background-color: darkorchid;
+    color:rgb(245, 168, 255);
+    border: rgb(245, 168, 255) 1px solid;
+    border-radius: 5px;
+}
+
+.buttonAdd:hover {
+    cursor: pointer;
+}
+
+.buttonRemove:hover {
+    cursor: pointer;
+}
+
+.buttonRemove {
+    background-color: darkblue;
+    color:rgb(245, 168, 255);
+    border: rgb(245, 168, 255) 1px solid;
+    border-radius: 5px;
+}
