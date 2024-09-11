@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Track.module.css';
 
 export default function Track({
+    track,
     trackName,
     artistName,
     albumName,
@@ -16,7 +17,7 @@ export default function Track({
                 <div>
                     <p>{artistName}</p>
                     <p className={styles.album}>{albumName}</p>
-                    <button onClick={() => handleAddToPlaylist()}>+</button>
+                    <button onClick={() => handleAddToPlaylist(track)}>+</button>
                 </div>
             </div>
         </div>

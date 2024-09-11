@@ -108,7 +108,7 @@ const handleRemoveFromPlaylist = (track) => {
       handleSubmit={handleSubmit}
       userInput={userInput} />
       <div className={styles.body}>
-     <SearchResults results={results}/>
+     <SearchResults results={results} handleAddToPlaylist={handleAddToPlaylist}/>
      <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} />
      </div>
     </div>

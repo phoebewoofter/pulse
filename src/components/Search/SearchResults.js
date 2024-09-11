@@ -4,11 +4,11 @@ import Login from '../Login/Login';
 import Tracklist from '../Track/Tracklist';
 import App from '../App/App';
 
-function SearchResults({results}) {
+function SearchResults({results, handleAddToPlaylist}) {
 
     return (
         <div>
-            <Tracklist tracks={results}/>
+            <Tracklist tracks={results} handleAddToPlaylist={handleAddToPlaylist}/>
         </div>
     )
 }

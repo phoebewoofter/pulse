@@ -1,5 +1,4 @@
 import React from "react";
-import App from '../App/App';
 import Tracklist from "../Track/Tracklist";
 import styles from './Playlist.module.css';
 
