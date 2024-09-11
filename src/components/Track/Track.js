@@ -5,8 +5,8 @@ export default function Track({
     trackName,
     artistName,
     albumName,
-    trackPreview,
-    albumArt
+    albumArt,
+    handleAddToPlaylist
 }) {
     return (
         <div className={styles.container}>
@@ -16,6 +16,7 @@ export default function Track({
                 <div>
                     <p>{artistName}</p>
                     <p className={styles.album}>{albumName}</p>
+                    <button onClick={() => handleAddToPlaylist()}>+</button>
                 </div>
             </div>
         </div>

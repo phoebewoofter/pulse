@@ -4,11 +4,14 @@ import SearchBar from '../Search/SearchBar';
 import SearchResults from '../Search/SearchResults';
 import Login from '../Login/Login';
 import styles from './App.module.css';
+import Playlist from '../Playlist/Playlist';
 
 
 function App() {
   const [results, setResults] = useState([]);
   const [userInput, setUserInput] = useState('');
+  const [playlistName, setPlaylistName] = useState('');
+  const [playlist, setPlaylist] = useState([]);
 
   async function getAccessToken() {
       // Retrieve the token and expiration time from sessionStorage
@@ -81,6 +84,20 @@ function App() {
           handleSearch(userInput);
       }
 
+const handlePlaylistNameChange = (e) => {
+     e.preventDefault();
+     setPlaylistName(e.target.value);
+}
+
+const handleAddToPlaylist = (track) => {
+     // Add the track to the playlist
+     setPlaylist([...playlist, track]);
+}
+
+const handleRemoveFromPlaylist = (track) => {
+     // Remove the track from the playlist
+     setPlaylist(playlist.filter((t) => t.id!== track.id));
+}
 
   return (
     <div className={styles.container}>
@@ -90,7 +107,10 @@ function App() {
       setUserInput={setUserInput}
       handleSubmit={handleSubmit}
       userInput={userInput} />
+      <div className={styles.body}>
      <SearchResults results={results}/>
+     <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} />
+     </div>
     </div>
   );
 }
