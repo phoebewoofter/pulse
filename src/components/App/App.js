@@ -67,6 +67,7 @@ function App() {
                   album: track.album.name,
                   artist: track.artists[0].name,
                   previewUrl: track.preview_url,
+                  albumArt: track.album.images[0].url
               }));
               setResults(tracks);
           }

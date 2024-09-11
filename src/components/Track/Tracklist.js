@@ -14,7 +14,9 @@ function Tracklist({tracks}) {
                     key={track.id}
                     trackName={track.name}
                     albumName={track.album}
-                    artistName={track.artist} />
+                    artistName={track.artist} 
+                    trackPreview={track.preview_url} 
+                    albumArt={track.albumArt}/>
                     ) } )) 
                 : "No tracks found."  }
         </div>
