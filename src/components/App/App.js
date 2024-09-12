@@ -12,6 +12,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [playlist, setPlaylist] = useState([]);
+  const [playlistUris, setPlaylistUris] = useState([]);
 
   async function getAccessToken() {
       // Retrieve the token and expiration time from sessionStorage
@@ -111,6 +112,77 @@ const handleToggleTrackInPlaylist = (track) => {
     }
 };
 
+const handleCreatePlaylist = async (playlist, playlistName, setPlaylistUris) => {
+    try {
+        let token = await getAccessToken();
+        console.log('Access Token:', token);
+
+        // Step 1: Get the user's Spotify ID
+        let userResponse = await fetch('https://api.spotify.com/v1/me', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        if (!userResponse.ok) {
+            throw new Error('Failed to get user ID');
+        }
+        let userData = await userResponse.json();
+        let userId = userData.id;
+        console.log('User ID:', userId);
+
+        // Step 2: Create a new playlist
+        let playlistResponse = await fetch(
+            `https://api.spotify.com/v1/users/${userId}/playlists`,
+            {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: playlistName,
+                    public: true,
+                }),
+            }
+        );
+        if (!playlistResponse.ok) {
+            let errorData = await playlistResponse.json();
+            throw new Error(`Failed to create playlist: ${errorData.error.message}`);
+        }
+        let playlistData = await playlistResponse.json();
+        let playlistId = playlistData.id;
+        console.log('Playlist ID:', playlistId);
+
+        // Step 3: Set the track URIs
+        let trackUris = playlist.map((track) => `spotify:track:${track.id}`);
+        console.log('Track URIs:', trackUris);
+
+        // Step 4: Add tracks to the playlist
+        let addTracksResponse = await fetch(
+            `https://api.spotify.com/v1/playlists/${playlistId}/tracks`,
+            {
+                method: 'POST',
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    uris: trackUris,
+                }),
+            }
+        );
+        if (!addTracksResponse.ok) {
+            let errorData = await addTracksResponse.json();
+            throw new Error(`Failed to add tracks to playlist: ${errorData.error.message}`);
+        }
+
+        console.log('Playlist created and tracks added successfully');
+    } catch (error) {
+        console.log(`There was an error when creating a playlist: ${error.message}`);
+    }
+};
+
+
   return (
     <div className={styles.container}>
      <Logo />
@@ -123,7 +195,7 @@ const handleToggleTrackInPlaylist = (track) => {
      <SearchResults results={results} handleAddToPlaylist={handleAddToPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
     isTrackInPlaylist={isTrackInPlaylist}/>
      <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
-    isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist}/>
+    isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist}/>
      </div>
     </div>
   );
