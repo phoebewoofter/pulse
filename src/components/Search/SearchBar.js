@@ -7,6 +7,7 @@ import styles from './SearchBar.module.css';
 function SearchBar({handleSubmit, setUserInput, userInput}) {
 
     return (
+      <div>
         <form className={styles.container} onSubmit={handleSubmit}>
           <input className={styles.SearchBar}
             type="text"
@@ -16,6 +17,7 @@ function SearchBar({handleSubmit, setUserInput, userInput}) {
           />
           <button className={styles.Search} type="submit">Search</button>
         </form>
+      </div>
       );
     }
     

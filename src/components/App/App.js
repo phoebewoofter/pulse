@@ -5,6 +5,7 @@ import SearchResults from '../Search/SearchResults';
 import Login from '../Login/Login';
 import styles from './App.module.css';
 import Playlist from '../Playlist/Playlist';
+import Play from '../Play/Play';
 
 
 function App() {
@@ -194,14 +195,13 @@ const handleCreatePlaylist = async (playlist, playlistName) => {
     }
     }
 
-
    
 
 
   return (
     <div className={styles.container}>
      <Logo />
-     <Login />
+     <Login getAccessToken={getAccessToken}/>
      <SearchBar
       setUserInput={setUserInput}
       handleSubmit={handleSubmit}
@@ -212,6 +212,7 @@ const handleCreatePlaylist = async (playlist, playlistName) => {
      <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
     isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist}/>
      </div>
+     <Play />
     </div>
   );
 }

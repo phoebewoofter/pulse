@@ -19,9 +19,20 @@
 }
 
 .container {
-    background-color: rgb(25, 3, 28);
+    background: linear-gradient(0deg, darkorchid, rgb(25, 3, 28) 80%) no-repeat;
     text-align: center;
     padding: 50px;
+}
+
+.userId {
+    color:rgb(245, 117, 245);
+    position: absolute;
+    top: 3vh;
+    right: 1vw;
+}
+
+.userIdSpan {
+    font-weight: bold;
 }
 
 @keyframes gradientHover {

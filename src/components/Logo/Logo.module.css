@@ -13,29 +13,34 @@
     position: absolute;
     height: auto;
     top: 20%; /* Final top value from the animation */
-    left: 42.5%; /* Final left value from the animation */
-    width: 8%;
+    left: 5.4%; /* Final left value from the animation */
+    width: 3.2%;
     animation: moveAndRotate 2s forwards, pulse 1s infinite 2s;
 }
 
 .imgStat {
     position: relative;
     height: auto;
-    width: 35%;
-    left: 32.7%;
-    top: 14%; /* Match the final top value of .imgDynamic */
+    width: 15%;
+    left: 1%;
+    top: .5%; /* Match the final top value of .imgDynamic */
+    object-fit: cover;
 }
 
 @keyframes moveAndRotate {
     0% {
-        top: 0;
-        left: 0;
+        top: 20%;
+        left: 45vw;
         transform: rotate(0deg);
+        height: auto;
+        width: 8%;
     }
     100% {
         top: 20%; /* Final top value */
-        left: 42.5%; /* Final left value */
+        left: 5.4%; /* Final left value */
         transform: rotate(180deg);
+        height: auto;
+        width: 3.2%;
     }
 }
 

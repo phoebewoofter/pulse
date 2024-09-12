@@ -1,8 +1,9 @@
 .container {
-    background: linear-gradient(to right, darkblue, darkorchid) border-box;
+    background-color: darkblue;
 }
 
 .body {
     display: flex;
     justify-content: center;
+    background: linear-gradient(to bottom, darkorchid, darkblue);
 }
