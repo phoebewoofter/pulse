@@ -13,6 +13,7 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [playlist, setPlaylist] = useState([]);
+  const [playingTrack, setPlayingTrack] = useState(null);
 
   async function getAccessToken() {
       // Retrieve the token and expiration time from sessionStorage
@@ -195,33 +196,61 @@ const handleCreatePlaylist = async (playlist, playlistName) => {
     }
     }
 
-const handlePlayTrack = async (track) => {
+const handlePlayTrack = async (playingTrack, setPlayingTrack, track) => {
     // Play the selected track
     try {
         let token = await getAccessToken();
         console.log('Access Token:', token);
 
-        let userResponse = await fetch('https://api.spotify.com/v1/me/player/play', {
+        let getTrackResponse = await fetch(`https://api.spotify.com/v1/tracks/${track.id}`, {
+            method: 'GET',
             headers: {
-                method: 'PUT',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify({
+            id: track.id
+        }),
+    });
+    if (!getTrackResponse.ok) {
+        let errorData = await getTrackResponse.json();
+        throw new Error(`Failed to get track: ${errorData.error.message}`);
+    }
+    if (getTrackResponse.ok) {
+        let playerData = await getTrackResponse.json();
+        let tracks = playerData.track.items.map((track) => ({
+                  name: track.name,
+                  id: track.id,
+                  album: track.album.name,
+                  artist: track.artists[0].name,
+                  previewUrl: track.preview_url,
+                  albumArt: track.album.images[0].url
+        }));
+        console.log('Track data:', tracks);
+        setPlayingTrack(tracks[0]);
+        return;
+    }
+        let userResponse = await fetch('https://api.spotify.com/v1/me/player/play', {
+            method: 'PUT',
+            headers: {
                 Authorization: `Bearer ${token}`,
                 'Content-Type': 'application/json',
+                },
                 body: JSON.stringify({
-                    context_uri: `spotify:track:${track.id}`
-                }),
-            }
+                context_uri: `spotify:track:${playingTrack.id}`
+            }),
         });
         if (!userResponse.ok) {
             throw new Error('Failed to play audio');
+            return;
         }
         if (userResponse.ok) {
-        let playerData = await userResponse.json();
-        console.log('Audio played successfully:', playerData);
+        let play = await userResponse.json();
+        console.log('Audio played successfully:', play);
+        return;
         }
     } catch (error) {
         console.log(`There was an error when playing audio: ${error.message}`);
     }
-    return;
 }
 
    

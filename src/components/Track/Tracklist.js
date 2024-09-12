@@ -7,7 +7,8 @@ function Tracklist({tracks,
     handleToggleTrackInPlaylist, 
     isTrackInPlaylist,
     handleRemoveFromPlaylist,
-    handleAddToPlaylist
+    handleAddToPlaylist,
+    handlePlayTrack
 }) {
 
     return (
@@ -26,7 +27,8 @@ function Tracklist({tracks,
                     isTrackInPlaylist={isTrackInPlaylist}
                     handleAddToPlaylist={handleAddToPlaylist}
                     handleRemoveFromPlaylist={handleRemoveFromPlaylist}
-                    track={track}/>
+                    track={track}
+                    handlePlayTrack={handlePlayTrack}/>
                    
                     ) } )) 
                 : "No tracks found."  }
