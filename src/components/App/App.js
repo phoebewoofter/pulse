@@ -12,7 +12,6 @@ function App() {
   const [userInput, setUserInput] = useState('');
   const [playlistName, setPlaylistName] = useState('');
   const [playlist, setPlaylist] = useState([]);
-  const [playlistUris, setPlaylistUris] = useState([]);
 
   async function getAccessToken() {
       // Retrieve the token and expiration time from sessionStorage
@@ -112,7 +111,7 @@ const handleToggleTrackInPlaylist = (track) => {
     }
 };
 
-const handleCreatePlaylist = async (playlist, playlistName, setPlaylistUris) => {
+const handleCreatePlaylist = async (playlist, playlistName) => {
     try {
         let token = await getAccessToken();
         console.log('Access Token:', token);
@@ -175,12 +174,28 @@ const handleCreatePlaylist = async (playlist, playlistName, setPlaylistUris) => 
             let errorData = await addTracksResponse.json();
             throw new Error(`Failed to add tracks to playlist: ${errorData.error.message}`);
         }
-
+        // Step 5: Alert the user that the playlist has been created and tracks have been added and reset the playlist and playlist name
+        if (addTracksResponse.ok) {
+            alert('Playlist created successfully');
+            setPlaylist([]);
+            setPlaylistName('');
+        }
         console.log('Playlist created and tracks added successfully');
     } catch (error) {
         console.log(`There was an error when creating a playlist: ${error.message}`);
     }
-};
+    if (!playlistName) {
+        alert('Please enter a playlist name');
+        return;
+    }
+    if (playlist.length === 0) {
+        alert('Please add tracks to the playlist');
+        return;
+    }
+    }
+
+
+   
 
 
   return (
