@@ -9,7 +9,8 @@ export default function Playlist({
     handleAddToPlaylist, 
     handleRemoveFromPlaylist, 
     playlist,
-    handleCreatePlaylist
+    handleCreatePlaylist,
+    handlePlayTrack
 }) {
   
     return (
@@ -17,7 +18,7 @@ export default function Playlist({
             <input className={styles.input}
                 type="text" value={playlistName} placeholder="Name your playlist..." onChange={handlePlaylistNameChange}/>
             <Tracklist tracks={playlist}
-            handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} isTrackInPlaylist={isTrackInPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleAddToPlaylist={handleAddToPlaylist}/>
+            handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} isTrackInPlaylist={isTrackInPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleAddToPlaylist={handleAddToPlaylist} handlePlayTrack={handlePlayTrack}/>
             <button onClick={() => handleCreatePlaylist(playlist, playlistName)} className={styles.Spotify}>
                 Save to Spotify
             </button>
