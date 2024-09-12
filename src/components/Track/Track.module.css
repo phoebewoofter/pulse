@@ -29,3 +29,10 @@
     border: rgb(245, 168, 255) 1px solid;
     border-radius: 5px;
 }
+
+.buttonPlay {
+    background-color: darkorchid;
+    color:rgb(245, 168, 255);
+    border: rgb(245, 168, 255) 1px solid;
+    border-radius: 5px;
+}

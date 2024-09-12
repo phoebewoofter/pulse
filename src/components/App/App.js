@@ -196,7 +196,7 @@ const handleCreatePlaylist = async (playlist, playlistName) => {
     }
     }
 
-const handlePlayTrack = async (playingTrack, setPlayingTrack, track) => {
+const handlePlayingTrack = async (track) => {
     // Play the selected track
     try {
         let token = await getAccessToken();
@@ -206,29 +206,25 @@ const handlePlayTrack = async (playingTrack, setPlayingTrack, track) => {
             method: 'GET',
             headers: {
                 Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify({
-            id: track.id
-        }),
+            }
     });
+
     if (!getTrackResponse.ok) {
         let errorData = await getTrackResponse.json();
         throw new Error(`Failed to get track: ${errorData.error.message}`);
     }
-    if (getTrackResponse.ok) {
         let playerData = await getTrackResponse.json();
-        let tracks = playerData.track.items.map((track) => ({
-                  name: track.name,
-                  id: track.id,
-                  album: track.album.name,
-                  artist: track.artists[0].name,
-                  previewUrl: track.preview_url,
-                  albumArt: track.album.images[0].url
-        }));
-        console.log('Track data:', tracks);
-        setPlayingTrack(tracks[0]);
-        return;
-    }
+        let playingTrack = {
+                  name: playerData.name,
+                  id: playerData.id,
+                  album: playerData.album.name,
+                  artist: playerData.artists[0].name,
+                  previewUrl: playerData.preview_url,
+                  albumArt: playerData.album.images[0].url
+        };
+        console.log('Track data:', playingTrack);
+        setPlayingTrack(playingTrack);
+        // Play the audio
         let userResponse = await fetch('https://api.spotify.com/v1/me/player/play', {
             method: 'PUT',
             headers: {
@@ -236,25 +232,24 @@ const handlePlayTrack = async (playingTrack, setPlayingTrack, track) => {
                 'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                context_uri: `spotify:track:${playingTrack.id}`
+                context_uri: `spotify:track:${playingTrack.id}`,
+                offset: 0,
+                position_ms: 0
             }),
         });
+
         if (!userResponse.ok) {
             throw new Error('Failed to play audio');
             return;
         }
-        if (userResponse.ok) {
+
         let play = await userResponse.json();
         console.log('Audio played successfully:', play);
-        return;
-        }
+        
     } catch (error) {
         console.log(`There was an error when playing audio: ${error.message}`);
     }
 }
-
-   
-
 
   return (
     <div className={styles.container}>
@@ -266,11 +261,11 @@ const handlePlayTrack = async (playingTrack, setPlayingTrack, track) => {
       userInput={userInput} />
       <div className={styles.body}>
      <SearchResults results={results} handleAddToPlaylist={handleAddToPlaylist} handleRemoveFromPlaylist={handleRemoveFromPlaylist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
-    isTrackInPlaylist={isTrackInPlaylist}/>
+    isTrackInPlaylist={isTrackInPlaylist} handlePlayingTrack={handlePlayingTrack}/>
      <Playlist handleRemoveFromPlaylist={handleRemoveFromPlaylist} handlePlaylistNameChange={handlePlaylistNameChange} playlist={playlist} handleToggleTrackInPlaylist={handleToggleTrackInPlaylist} playlistName={playlistName}
-    isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist} handlePlayTrack={handlePlayTrack}/>
+    isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist} handlePlayingTrack={handlePlayingTrack} />
      </div>
-     <Play />
+     <Play playingTrack={playingTrack} />
     </div>
   );
 }

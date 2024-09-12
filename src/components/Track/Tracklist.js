@@ -8,7 +8,7 @@ function Tracklist({tracks,
     isTrackInPlaylist,
     handleRemoveFromPlaylist,
     handleAddToPlaylist,
-    handlePlayTrack
+    handlePlayingTrack
 }) {
 
     return (
@@ -18,6 +18,7 @@ function Tracklist({tracks,
                     return (
                     <Track 
                     key={track.id}
+                    trackUri={`spotify:track:${track.id}`}
                     trackName={track.name}
                     albumName={track.album}
                     artistName={track.artist} 
@@ -27,8 +28,8 @@ function Tracklist({tracks,
                     isTrackInPlaylist={isTrackInPlaylist}
                     handleAddToPlaylist={handleAddToPlaylist}
                     handleRemoveFromPlaylist={handleRemoveFromPlaylist}
-                    track={track}
-                    handlePlayTrack={handlePlayTrack}/>
+                    handlePlayingTrack={handlePlayingTrack}
+                    track={track}/>
                    
                     ) } )) 
                 : "No tracks found."  }
