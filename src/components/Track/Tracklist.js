@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Track from './Track';
 import styles from './Tracklist.module.css';
-import App from '../App/App';
 
 
 function Tracklist({tracks, 
