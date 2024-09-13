@@ -1,8 +1,15 @@
-import React from 'react';
+import React, {useRef, useEffect} from 'react';
 import styles from './Play.module.css';
 
 
 export default function Play({ playingTrack }) {
+    const audioRef = useRef(null);
+
+    useEffect(() => {
+        if (audioRef.current) {
+            audioRef.current.load();
+        }
+    }, [playingTrack]);
 return (
     <div>
     {playingTrack && (
@@ -12,7 +19,7 @@ return (
           <h2>{playingTrack.name}</h2>
           <p>{playingTrack.artist} - {playingTrack.album}</p>
          </div>
-          <audio className={styles.audio} controls>
+          <audio className={styles.audio} controls ref={audioRef}>
             <source src={playingTrack.previewUrl} type="audio/mpeg" />
           </audio>
         </div>

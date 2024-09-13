@@ -224,27 +224,6 @@ const handlePlayingTrack = async (track) => {
         };
         console.log('Track data:', playingTrack);
         setPlayingTrack(playingTrack);
-        // Play the audio
-        let userResponse = await fetch('https://api.spotify.com/v1/me/player/play', {
-            method: 'PUT',
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                context_uri: `spotify:track:${playingTrack.id}`,
-                offset: 0,
-                position_ms: 0
-            }),
-        });
-
-        if (!userResponse.ok) {
-            throw new Error('Failed to play audio');
-            return;
-        }
-
-        let play = await userResponse.json();
-        console.log('Audio played successfully:', play);
         
     } catch (error) {
         console.log(`There was an error when playing audio: ${error.message}`);
