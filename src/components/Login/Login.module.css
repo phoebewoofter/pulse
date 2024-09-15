@@ -1,25 +1,23 @@
 .Login {
-    color: rgb(148, 2, 148);
+    color: rgb(245, 168, 255);
     font: sans-serif;
     font-size: 24px;
     text-decoration: none;
     font-weight: bold;
     padding: 10px;
     border-radius: 10px;
-    background: linear-gradient(white, white) padding-box,
-    linear-gradient(to right, darkblue, darkorchid) border-box;
+    background: linear-gradient(to right, darkblue, darkorchid) border-box;
     border-radius: 10%;
-    border: 4px solid transparent;
+    border: none;
 }
 
 
 .Login:hover {
     cursor: pointer;
-    animation: gradientHover 1s forwards linear;
 }
 
 .container {
-    background: linear-gradient(0deg, darkorchid, rgb(25, 3, 28) 80%) no-repeat;
+    background: linear-gradient(rgb(117, 30, 160), darkorchid);
     text-align: center;
     padding: 50px;
 }
@@ -27,12 +25,19 @@
 .userId {
     color:rgb(245, 117, 245);
     position: absolute;
-    top: 3vh;
-    right: 1vw;
+    top: 25px;
+    left: 20%;
 }
 
 .userIdSpan {
     font-weight: bold;
+}
+
+.p {
+    color: rgb(245, 168, 255);
+    font-size: 24px;
+    font-weight: bold;
+    padding-bottom: 20px;
 }
 
 @keyframes gradientHover {

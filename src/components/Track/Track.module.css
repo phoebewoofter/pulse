@@ -1,9 +1,11 @@
 .container {
-    background-color: rgb(25, 3, 28);
     color: white;
     padding: 20px;
 }
-
+.albumArt {
+    width: 20%;
+    height: 20%;
+}
 .album {
     font-style: italic;
 }
@@ -35,4 +37,18 @@
     color:rgb(245, 168, 255);
     border: rgb(245, 168, 255) 1px solid;
     border-radius: 5px;
+    margin-left: 5px;
+}
+
+.buttonPlay:hover {
+    cursor: pointer;
+}
+
+.trackBox {
+    display: flex;
+    align-items: center;
+}
+
+.trackInfo {
+    margin-left: 10px;
 }

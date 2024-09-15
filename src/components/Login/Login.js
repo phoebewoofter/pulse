@@ -54,7 +54,7 @@ async function getUserId(token) {
     <div className={styles.container}>
       {!token ? (
         <div>
-        <p>Sign in to Spotify to listen to all your favorite songs. And maybe discover some new ones along the way.</p>
+        <p className={styles.p}>Sign in to Spotify to listen to all your favorite songs. And maybe discover some new ones along the way.</p>
         <a
           className={styles.Login}
           href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}
@@ -63,7 +63,7 @@ async function getUserId(token) {
         </a>
         </div>
       ) : (
-        <div className={styles.userId} onClick={() => getUserId(token)}>Logged in as <span className={styles.userIdSpan}>{userId}</span></div>
+        <div className={styles.userId} onClick={() => getUserId(token)}>Hey, <span className={styles.userIdSpan}>{userId}</span></div>
       )}
     </div>
   );

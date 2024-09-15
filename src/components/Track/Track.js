@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './Track.module.css';
-import Play from '../Play/Play';
 
 export default function Track({
     track,
@@ -14,14 +13,14 @@ export default function Track({
 }) {
     return (
         <div className={styles.container}>
-            <div>
-                <img src={albumArt} width="200" height="200" />
-                <h2>{trackName}</h2>
-                <div>
+            <div className={styles.trackBox}>
+                <img src={albumArt} className={styles.albumArt} />
+                <div className={styles.trackInfo}>
+                    <h2>{trackName}</h2>
                     <p>{artistName}</p>
                     <p className={styles.album}>{albumName}</p>
-                    {isTrackInPlaylist(track)? <button className={styles.buttonRemove} onClick={() => handleToggleTrackInPlaylist(track)}>-</button> : <button className={styles.buttonAdd} onClick={() => handleToggleTrackInPlaylist(track)}>+</button>}
-                    <button className={styles.buttonPlay} onClick={() => handlePlayingTrack(track)}>Play</button>
+                        {isTrackInPlaylist(track)? <button className={styles.buttonRemove} onClick={() => handleToggleTrackInPlaylist(track)}>-</button> : <button className={styles.buttonAdd} onClick={() => handleToggleTrackInPlaylist(track)}>+</button>}
+                        <button className={styles.buttonPlay} onClick={() => handlePlayingTrack(track)}>Play</button>
                 </div>
             </div>
         </div>

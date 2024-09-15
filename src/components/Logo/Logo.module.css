@@ -1,5 +1,5 @@
 .container {
-    background-color: rgb(25, 3, 28);
+    background: linear-gradient(0deg, rgb(117, 30, 160), rgb(25, 3, 28) 50%) no-repeat;
     position: relative; /* Ensure the container is the reference for absolute positioning */
 }
 
@@ -42,6 +42,13 @@
         height: auto;
         width: 3.2%;
     }
+}
+
+.headline {
+    color: rgb(245, 168, 255);
+    position: absolute;
+    top: 40px;
+    left: 20%;
 }
 
 @keyframes pulse {
