@@ -8,6 +8,7 @@ function SearchResults({results,
     handleToggleTrackInPlaylist,
     isTrackInPlaylist,
     handlePlayingTrack}) {
+        
     return (
         <div className={styles.background}>
             <h2 className={styles.title}>Results</h2>
