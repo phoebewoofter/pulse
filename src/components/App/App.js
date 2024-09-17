@@ -232,8 +232,11 @@ const handlePlayingTrack = async (track) => {
 
   return (
     <div className={styles.container}>
-     <Logo />
+    <Logo />
+    <div> 
      <Login getAccessToken={getAccessToken}/>
+    </div>
+     <div>
      <SearchBar
       setUserInput={setUserInput}
       handleSubmit={handleSubmit}
@@ -245,6 +248,7 @@ const handlePlayingTrack = async (track) => {
     isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist} handlePlayingTrack={handlePlayingTrack} />
      </div>
      <Play playingTrack={playingTrack} />
+     </div>
     </div>
   );
 }
