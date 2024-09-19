@@ -18,15 +18,6 @@ Live site coming soon!
 
 
 
-## 📋 &nbsp; Table of Contents
-
-1. [Features](#features)
-2. [Coming Soon](#coming-soon)
-3. [Installation](#installation)
-4. [Technologies](#technologies)
-5. [Contact](#contact)
-
-
 
 ## 💭 &nbsp; Features
 Authentication: Users can log in to Spotify.\
@@ -48,19 +39,22 @@ Lyrics Display: Users will have access to the lyrics of the currently playing tr
 
 
 ## 🛠️ &nbsp; Installation
-```git clone https://github.com/phoebewoofter/pulse.git```\
-```npm install```\
-```npm start```
+```bash
+git clone https://github.com/phoebewoofter/pulse.git```\
+```bash
+npm install```\
+```bash
+npm start```
 
 
 
 
 ## 💻 &nbsp; Technologies
-REACT
-JAVASCRIPT
-CSS
-HTML5
-GIT
+REACT\
+JAVASCRIPT\
+CSS\
+HTML5\
+GIT\
 
 
 
