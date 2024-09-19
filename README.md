@@ -13,12 +13,12 @@ Pulse is currently in development mode with the Spotify API.
 
 
 
-## 🔗 &nbsp; Link\
+## 🔗 &nbsp; Link
 Live site coming soon!
 
 
 
-## 📋 &nbsp; Table of Contents\
+## 📋 &nbsp; Table of Contents
 
 1. [Features](#features)
 2. [Coming Soon](#coming-soon)
@@ -28,7 +28,7 @@ Live site coming soon!
 
 
 
-## 💭 &nbsp; Features\
+## 💭 &nbsp; Features
 Authentication: Users can log in to Spotify.\
 Search: Users can search for songs through the Spotify Web API.\
 Playlist Creation and Management: Users can create their own playlists, name them, and add or remove tracks. They can also upload those playlists to Spotify.\
@@ -37,7 +37,7 @@ Audio Preview: Users can view information about tracks and albums while listenin
 
 
 
-## 🎥 &nbsp; Coming Soon\
+## 🎥 &nbsp; Coming Soon
 Current features in development...\
 Advanced Playlist Management: Users will be able to change their playlist cover art.\
 Recommendations: Users will be greeted with a pop up of recommended music based on their favorite (or most-played) artists, genre preferences, and overall listening habits.\
@@ -47,7 +47,7 @@ Lyrics Display: Users will have access to the lyrics of the currently playing tr
 
 
 
-## 🛠️ &nbsp; Installation\
+## 🛠️ &nbsp; Installation
 ```git clone https://github.com/phoebewoofter/pulse.git```\
 ```npm install```\
 ```npm start```
@@ -55,19 +55,18 @@ Lyrics Display: Users will have access to the lyrics of the currently playing tr
 
 
 
-## 💻 &nbsp; Technologies\
-* [![REACT][REACT.js]][REACT-url]
-* [![JAVASCRIPT][JAVASCRIPT.js]][JAVASCRIPT-url]
-* [![CSS][CSS.js]][CSS-url]
-* [![HTML5][HTML5.js]][HTML5-url]
-* [![GIT][GIT.js]][GIT-url]
+## 💻 &nbsp; Technologies
+REACT
+JAVASCRIPT
+CSS
+HTML5
+GIT
 
 
 
 
-## 👤 &nbsp; Contact\
+## 👤 &nbsp; Contact
 LinkedIn\
 Phoebe Woofter - phoebewoofter@gmail.com
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+[Back to top](#pulse)
