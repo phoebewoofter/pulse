@@ -4,21 +4,21 @@ Pulse is a `React` project developed by Phoebe Woofter, an aspiring developer an
 
 \
 \
-\
+
 
 📝  **Note**\
 Pulse is currently in development mode with the Spotify API. 
 
 \
 \
-\
+
 
 🔗  **Link**\
 Live site coming soon!
 
 \
 \
-\
+
 
 💭  **Features**\
 Authentication: Users can log in to Spotify.\
@@ -28,7 +28,7 @@ Audio Preview: Users can view information about tracks and albums while listenin
 
 \
 \
-\
+
 
 🎥  **Coming Soon**\
 Current features in development...\
@@ -39,7 +39,7 @@ Lyrics Display: Users will have access to the lyrics of the currently playing tr
 
 \
 \
-\
+
 
 🛠️  **Installation**\
 ```git clone https://github.com/phoebewoofter/pulse.git```\
@@ -48,7 +48,7 @@ Lyrics Display: Users will have access to the lyrics of the currently playing tr
 
 \
 \
-\
+
 
 💻  **Technologies**\
 REACT\
@@ -59,7 +59,7 @@ GIT\
 
 \
 \
-\
+
 
 👤  **Contact**\
 LinkedIn\
