@@ -47,11 +47,7 @@ Live site coming soon!
 
 
 ## 💻 &nbsp; Technologies
-REACT\
-JAVASCRIPT\
-CSS\
-HTML5\
-GIT
+<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,vscode,git,github&perline=3">
 
 
 
