@@ -3,7 +3,7 @@
 Pulse is a `React` project developed by Phoebe Woofter, an aspiring developer and current Codecademy student. The application prompts users log in to Spotify so they can search for music in the Spotify library, listen to track previews, create personalized playlists, and save them to their Spotify account.
 
 
-
+![Alt text](./preview_pulse.png)
 
 
 ## 📝 &nbsp; Note
@@ -19,11 +19,11 @@ Live site coming soon!
 
 
 
-## 💭 &nbsp; Features
+## 🎤 &nbsp; Features
 *Authentication:* Users can log in to Spotify.\
 *Search:* Users can search for songs through the Spotify Web API.\
 *Playlist Creation and Management:* Users can create their own playlists, name them, and add or remove tracks. They can also upload those playlists to Spotify.\
-*Audio Preview:* Users can view information about tracks and albums while listening to an audio preview.\
+*Audio Preview:* Users can view information about tracks and albums while listening to an audio preview.
 
 
 
@@ -51,7 +51,7 @@ REACT\
 JAVASCRIPT\
 CSS\
 HTML5\
-GIT\
+GIT
 
 
 
