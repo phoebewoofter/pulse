@@ -47,7 +47,7 @@ Live site coming soon!
 
 
 ## 💻 &nbsp; Technologies
-<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,vscode,git,github&perline=3">
+<img style="text-align: right;" src="https://skillicons.dev/icons?i=html,css,js,react,vscode,git,github&perline=7">
 
 
 
