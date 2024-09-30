@@ -34,7 +34,7 @@ function Login() {
    if (token) {
      getUserId(token);
    }
- }, [token]);
+ });
 
 
  async function getUserId(token) {

@@ -1,5 +1,5 @@
 import Logo from '../Logo/Logo';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import SearchBar from '../Search/SearchBar';
 import SearchResults from '../Search/SearchResults';
 import Login from '../Login/Login';

@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import App from '../App/App';
-import SearchResults from './SearchResults';
 import styles from './SearchBar.module.css';
 
 

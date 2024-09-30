@@ -14,7 +14,7 @@ export default function Track({
     return (
         <div className={styles.container}>
             <div className={styles.trackBox}>
-                <img src={albumArt} className={styles.albumArt} />
+                <img alt={albumName} src={albumArt} className={styles.albumArt} />
                 <div className={styles.trackInfo}>
                     <h2>{trackName}</h2>
                     <p>{artistName}</p>
