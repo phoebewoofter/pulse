@@ -24,7 +24,7 @@ function App() {
       if (!token || expireTime < new Date().getTime()) {
           const client_id = "84b572100dda404a8debfc4a94bda0f4";
   
-          const redirect_uri = "http://localhost:3000";
+          const redirect_uri = "https://66fb0786af1f6c263e4e7ed9--flourishing-halva-064ebe.netlify.app/";
   
           let scope = "playlist-modify-public";
   
@@ -54,6 +54,7 @@ function App() {
   }
 
   async function handleSearch(query) {
+    e.preventDefault();
       try {
           let token = await getAccessToken();
           let response = await fetch(
