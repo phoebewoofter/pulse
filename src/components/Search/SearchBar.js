@@ -16,9 +16,14 @@ function SearchBar({handleSubmit, setUserInput, userInput}) {
       };
   }, [debouncedInput, setUserInput]);
 
+  const onSubmit = (e) => {
+    e.preventDefault();
+    handleSubmit(debouncedInput);
+  }
+
     return (
       <div>
-        <form className={styles.container} onSubmit={handleSubmit}>
+        <form className={styles.container} onSubmit={onSubmit}>
           <input className={styles.SearchBar}
             type="text"
             value={debouncedInput}
