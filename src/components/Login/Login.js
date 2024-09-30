@@ -4,7 +4,7 @@ import styles from './Login.module.css';
 
 function Login() {
  const CLIENT_ID = "84b572100dda404a8debfc4a94bda0f4";
- const REDIRECT_URI = "http://localhost:3000";
+ const REDIRECT_URI = "https://66fb0786af1f6c263e4e7ed9--flourishing-halva-064ebe.netlify.app";
  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize";
  const RESPONSE_TYPE = "token";
  const [token, setToken] = useState("");
