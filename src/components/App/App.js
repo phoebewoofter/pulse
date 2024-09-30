@@ -55,37 +55,43 @@ function App() {
 
   async function handleSearch(query) {
     e.preventDefault();
-      try {
-          let token = await getAccessToken();
-          let response = await fetch(
-              `https://api.spotify.com/v1/search?type=track&q=${query}`,
-              {
-                  headers: {
-                      Authorization: `Bearer ${token}`,
-                  },
-              }
-          );
-          if (response.ok) {
-              let data = await response.json();
-              let tracks = data.tracks.items.map((track) => ({
-                  name: track.name,
-                  id: track.id,
-                  album: track.album.name,
-                  artist: track.artists[0].name,
-                  previewUrl: track.preview_url,
-                  albumArt: track.album.images[0].url
-              }));
-              setResults(tracks);
-          }
-      } catch (error) {
-          console.log(`There was an error when searching: ${error}`);
-      }
-  }
+    try {
+        let token = await getAccessToken();
+        let response = await fetch(
+            `https://api.spotify.com/v1/search?type=track&q=${query}`,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+        if (response.ok) {
+            let data = await response.json();
+            if (data.tracks && data.tracks.items) {
+                let tracks = data.tracks.items.map((track) => ({
+                    name: track.name,
+                    id: track.id,
+                    album: track.album.name,
+                    artist: track.artists[0].name,
+                    previewUrl: track.preview_url,
+                    albumArt: track.album.images[0]?.url // Added optional chaining
+                }));
+                setResults(tracks);
+            } else {
+                console.error("Tracks data is null or does not have the expected structure.");
+            }
+        } else {
+            console.error("Failed to fetch data from Spotify API.");
+        }
+    } catch (error) {
+        console.log(`There was an error when searching: ${error}`);
+    }
+}
 
-  const handleSubmit = (e) => {
-          e.preventDefault();
-          handleSearch(userInput);
-      }
+const handleSubmit = (e) => {
+    e.preventDefault();
+    handleSearch(userInput);
+}
 
 const handlePlaylistNameChange = (e) => {
      e.preventDefault();
