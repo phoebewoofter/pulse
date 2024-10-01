@@ -54,7 +54,6 @@ function App() {
   }
 
   async function handleSearch(query) {
-    e.preventDefault();
     try {
         let token = await getAccessToken();
         let response = await fetch(
