@@ -256,7 +256,11 @@ const handlePlayingTrack = async (track) => {
      </div>
      <Play playingTrack={playingTrack} />
      </div>
-    </div>
+     <footer className={styles.footer}>
+        <img src={require("./Spotify_Primary_Logo_RGB_White.png")} alt="Spotify Icon" />  
+        <p>Made possible by Spotify</p>  
+     </footer>
+     </div>
   );
 }
 export default App;
