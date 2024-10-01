@@ -11,3 +11,13 @@
 .footer {
     display: flex;
 }
+
+.icon {
+    width: 10%;
+    height: auto;
+}
+
+.footer-text {
+    color: rgb(245, 168, 255);
+    font-size: 20px;
+};
