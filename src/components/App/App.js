@@ -8,7 +8,7 @@ import Playlist from '../Playlist/Playlist';
 import Play from '../Play/Play';
 
 
-function App() {
+function App(token, userId) {
   const [results, setResults] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [playlistName, setPlaylistName] = useState('');
