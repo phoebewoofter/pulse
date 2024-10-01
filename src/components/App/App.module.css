@@ -10,10 +10,11 @@
 
 .footer {
     display: flex;
+    align-content: center;
 }
 
 .icon {
-    width: 10%;
+    width: 5vw;
     height: auto;
 }
 
