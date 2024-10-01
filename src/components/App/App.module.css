@@ -11,14 +11,16 @@
 .footer {
     display: flex;
     align-content: center;
+    padding-top: 20px;
 }
 
 .icon {
-    width: 5vw;
+    width: 5%;
     height: auto;
 }
 
 .footertext {
     color: rgb(245, 168, 255);
     font-size: 20px;
+    padding-left: 10px;
 };

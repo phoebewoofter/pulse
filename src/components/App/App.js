@@ -242,7 +242,8 @@ const handlePlayingTrack = async (track) => {
     <div> 
      <Login getAccessToken={getAccessToken}/>
     </div>
-     <div>
+    {!userId && !token ? (
+    <div></div> ) : ( <div>
      <SearchBar
       setUserInput={setUserInput}
       handleSubmit={handleSubmit}
@@ -255,9 +256,10 @@ const handlePlayingTrack = async (track) => {
      </div>
      <Play playingTrack={playingTrack} />
      </div>
+     )}
      <footer className={styles.footer}>
         <img className={styles.icon} src={require("./Spotify_Primary_Logo_RGB_White.png")} alt="Spotify Icon" />  
-        <p className={styles.footertext}>Made possible by Spotify</p>  
+        <p className={styles.footertext}>Made possible by Spotify</p> 
      </footer>
      </div>
   );
