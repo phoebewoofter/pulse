@@ -16,8 +16,7 @@ function SearchBar({handleSubmit, setUserInput, userInput}) {
       };
   }, [debouncedInput, setUserInput]);
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (debouncedInput) => {
     handleSubmit(debouncedInput);
   }
 
