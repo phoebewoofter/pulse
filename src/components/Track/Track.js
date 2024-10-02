@@ -14,7 +14,7 @@ export default function Track({
     return (
         <div className={styles.container}>
             <div className={styles.trackBox}>
-                <img alt={albumName} src={albumArt} className={styles.albumArt} />
+                <img alt={[trackName, albumName, artistName]} title={`https://open.spotify.com/track/${track.id}`} src={albumArt} className={styles.albumArt} />
                 <div className={styles.trackInfo}>
                     <h2>{trackName}</h2>
                     <p>{artistName}</p>

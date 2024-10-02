@@ -14,7 +14,7 @@ return (
     <div>
     {playingTrack && (
         <div className={styles.play}>
-            <img className={styles.albumCover} src={playingTrack.albumArt} alt={`${playingTrack.name} album art`} />
+            <img className={styles.albumCover} src={playingTrack.albumArt} alt={`${playingTrack.name} album art`} title={`"https://open.spotify.com/track/${playingTrack.id}`}/>
          <div className={styles.info}>
           <h2>{playingTrack.name}</h2>
           <p>{playingTrack.artist} - {playingTrack.album}</p>

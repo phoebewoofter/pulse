@@ -8,7 +8,7 @@ import Playlist from '../Playlist/Playlist';
 import Play from '../Play/Play';
 
 
-function App(token, userId) {
+function App() {
   const [results, setResults] = useState([]);
   const [userInput, setUserInput] = useState('');
   const [playlistName, setPlaylistName] = useState('');
@@ -24,7 +24,7 @@ function App(token, userId) {
       if (!token || expireTime < new Date().getTime()) {
           const client_id = "84b572100dda404a8debfc4a94bda0f4";
   
-          const redirect_uri = "https://66fb0786af1f6c263e4e7ed9--flourishing-halva-064ebe.netlify.app/";
+          const redirect_uri = "https://flourishing-halva-064ebe.netlify.app/";
   
           let scope = "playlist-modify-public";
   
@@ -242,8 +242,6 @@ const handlePlayingTrack = async (track) => {
     <div> 
      <Login getAccessToken={getAccessToken}/>
     </div>
-    {!userId && !token ? (
-    <div></div> ) : ( <div>
      <SearchBar
       setUserInput={setUserInput}
       handleSubmit={handleSubmit}
@@ -255,13 +253,12 @@ const handlePlayingTrack = async (track) => {
     isTrackInPlaylist={isTrackInPlaylist} handleAddToPlaylist={handleAddToPlaylist} handleCreatePlaylist={handleCreatePlaylist} handlePlayingTrack={handlePlayingTrack} />
      </div>
      <Play playingTrack={playingTrack} />
-     </div>
-     )}
-     <footer className={styles.footer}>
-        <img className={styles.icon} src={require("./Spotify_Primary_Logo_RGB_White.png")} alt="Spotify Icon" />  
-        <p className={styles.footertext}>Made possible by Spotify</p> 
-     </footer>
-     </div>
+     
+      <footer className={styles.footer}>
+      <img className={styles.icon} src={require("./Spotify_Primary_Logo_RGB_White.png")} alt="Spotify Icon" />  
+      <p className={styles.footertext}>Made possible by Spotify</p> 
+   </footer>
+   </div>
   );
 }
 export default App;
